@@ -7,8 +7,7 @@ WORKDIR /workdir
 RUN apt-get update; apt-get install -y ffmpeg
 RUN python -m pip install --upgrade pip
 
-RUN --mount=type=cache,target=/root/.cache \
-    pip install "audio-separator[cpu]"
+RUN pip install "audio-separator[cpu]"
 
 # Run audio-separator when the container launches
 ENTRYPOINT ["audio-separator"]
